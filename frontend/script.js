@@ -11,7 +11,7 @@ async function gerarImagem() {
   document.getElementById("resultado").innerHTML = "⌛ Gerando imagem...";
 
   try {
-    const resposta = await fetch("http://127.0.0.1:8000/gerar-imagem", {
+    const resposta = await fetch("https://dilsai-backend.onrender.com/gerar-imagem", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ prompt }),
@@ -36,13 +36,12 @@ async function gerarImagem() {
 
 async function carregarHistorico() {
   try {
-    const resposta = await fetch("http://127.0.0.1:8000/data/output/historico.json");
+    const resposta = await fetch("https://dilsai-backend.onrender.com/data/output/historico.json");
     const historico = await resposta.json();
 
     const divHistorico = document.getElementById("historico");
     divHistorico.innerHTML = "";
 
-    // Exibe em ordem reversa (últimos primeiro)
     [...historico].reverse().forEach(item => {
       const img = document.createElement("img");
       img.src = item.url_local;
@@ -61,5 +60,5 @@ window.onload = carregarHistorico;
 function limparHistorico() {
   const historico = document.getElementById('historico');
   historico.innerHTML = '';
-  localStorage.removeItem('historico'); // Se estiver usando localStorage
+  localStorage.removeItem('historico');
 }
