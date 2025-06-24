@@ -1,0 +1,29 @@
+<!-- frontend/index.html -->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DilsAI Vision</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>🧠 DilsAI Vision</h1>
+    <p>Descreva a imagem que deseja gerar com IA:</p>
+    
+    <input type="text" id="prompt" placeholder="Ex: um astronauta andando de bicicleta na lua" />
+    <button onclick="gerarImagem()">Gerar Imagem</button>
+    <div id="historico-container">
+  <h2>🖼️ Histórico de Imagens</h2>
+  <button onclick="limparHistorico()" style="margin-top: 10px;">🧹 Limpar Histórico</button>
+  <div id="historico"></div>
+</div>
+
+
+    <div id="resultado" class="imagem-container"></div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
